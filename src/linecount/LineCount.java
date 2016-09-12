@@ -87,7 +87,7 @@ public class LineCount extends JFrame {
                     logDirectoryTree(false, nivelAtual, f);
                     count += findFolder(f, nivelAtual);
                 }
-            } else if (file.getAbsolutePath().endsWith(".js")) {
+            } else if (file.getAbsolutePath().endsWith(".java")) {
                 BufferedReader in = new BufferedReader(new FileReader(file));
                 count += CountLines.count(in);
                 logFileCount(false, nivel, file, count);
@@ -95,7 +95,7 @@ public class LineCount extends JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "No such file", "Attention!", JOptionPane.WARNING_MESSAGE);
         }
-        if (nivel == 1 || nivel == 2) {
+        if (nivel == 1) {
             if (file.isDirectory()) {
                 System.out.println("\"" + file.getName() + "\"" + ", \"" + count + "\"");
                 functionsCount.put(file.getName(), count);

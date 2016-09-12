@@ -19,7 +19,7 @@ class CountLines {
     static Pattern commentLine = Pattern.compile("^\\s*//");
     static Pattern commentBlockStartAndEnd = Pattern.compile("^\\s*(.*)(/\\*)+(.*)");
     static Pattern commentBlockEnd = Pattern.compile("\\*/");
-    //static Pattern importLine = Pattern.compile("^\\s*import+\\d*");
+    static Pattern importLine = Pattern.compile("^\\s*import+\\d*");
     static Pattern packageLine = Pattern.compile("^\\s*package+\\d*");
 
     private static final int COMMENTED_LINE = 1;
@@ -105,6 +105,6 @@ class CountLines {
     }
 
     private static boolean isImportOrPackage(String line) {
-        return false;//importLine.matcher(line).find() || packageLine.matcher(line).find();
+        return importLine.matcher(line).find() || packageLine.matcher(line).find();
     }
 }
